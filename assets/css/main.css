@@ -1603,16 +1603,17 @@ input, select, textarea {
 	display: flex;
 	align-items: center;   /* vertically centers text with image */
 	gap: 20px;             /* space between image and text */
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	}
 	.container.content img {
 	border-radius: 8px;    /* optional styling */
 	height: auto;
   	max-width: 50%;          /* never overflow */
 	}
-
-	.img-600 { width: 600px; }
-
+	.container.content p{
+		text-align: justify;
+		margin-bottom: 0;
+	}
 
 	.image {
 		display: inline-block;
@@ -1635,13 +1636,16 @@ input, select, textarea {
 
 		.image.centered {
 			display: block;
-			margin: 0 0 2em 0;
+			margin: 0 1em 2em 1em;
 		}
 
 			.image.centered img {
 				margin: 0 auto;
-				max-width: 80%;
+				max-width: 100%;
 				height: auto;
+			}
+			.image.centered p{
+				text-align: justify;
 			}
 
 		.image.featured {
@@ -2721,17 +2725,18 @@ input, select, textarea {
 
 				#navPanel .link {
 					display: block;
-					color: rgba(255, 255, 255, 0.8);
+					color: rgba(255, 255, 255, 0.5);
 					text-transform: uppercase;
 					text-decoration: none;
-					font-size: 0.85em;
+					font-size: 0.8em;
 					letter-spacing: 0.15em;
-
-					/* fix */
+					text-decoration: none;
 					height: auto;          /* let it expand */
 					line-height: 1.4em;    /* normal readable line height */
-					padding: 10px 0;       /* spacing instead of fixed height */
+					padding: 10px 0;  /* left padding */
 					white-space: normal;   /* allow wrapping */
+					border-top: solid 1px rgba(255, 255, 255, 0.05);
+					margin: 0 15px 0 15px;
 				}
 
 					#navPanel .link:first-child {
@@ -2985,6 +2990,45 @@ input, select, textarea {
 				#content header.style1 {
 					padding-bottom: 2.5em;
 				}
+
+			.container.content {
+				flex-direction: column;      /* vertical stack */
+				align-items: stretch;        /* let text take full width */
+				gap: 6px;                   /* tighter spacing on mobile */
+			}
+
+			.container.content img {
+				max-width: 100%;             /* full width image */
+				width: 100%;
+				max-height: 280px;
+				object-fit: contain;
+				margin-bottom: 2px;
+				margin: 0 auto;
+				
+			}
+
+			.container.content p {
+				margin-bottom: 10px;
+			}
+
+			/* if the image is a direct child */
+			.container.content > img { order: -1; }
+
+			/* if the image is wrapped in a .image div/span */
+			.container.content > .image { order: -1; }
+
+			/* optional: make text follow after */
+			.container.content > :not(img):not(.image) { order: 1; }
+
+			.row.aln-center li{
+				list-style: none;
+				text-align: center;
+			}
+
+			.row.aln-center p {
+				text-align: center;
+			}
+
 
 		/* Footer */
 
