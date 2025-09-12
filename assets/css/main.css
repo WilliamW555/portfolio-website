@@ -1644,7 +1644,8 @@ input, select, textarea {
 				max-width: 100%;
 				height: auto;
 			}
-			.image.centered p{
+			.image.centered p {
+				margin-bottom: 16px;
 				text-align: justify;
 			}
 
@@ -3020,7 +3021,7 @@ input, select, textarea {
 			/* optional: make text follow after */
 			.container.content > :not(img):not(.image) { order: 1; }
 
-			.row.aln-center li{
+			.row.aln-center li {
 				list-style: none;
 				text-align: center;
 			}
